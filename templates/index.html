@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        #bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white overflow-x-hidden">
+
+<!-- 🔥 BACKGROUND -->
+<canvas id="bg"></canvas>
+
+<!-- 🔥 BACK BUTTON (FIXED TOP LEFT) -->
+<a href="/dashboard"
+class="fixed top-5 left-5 z-20 flex items-center gap-2 
+bg-gradient-to-r from-[#0b1220] to-black 
+border border-gray-700 px-5 py-2.5 rounded-xl 
+text-gray-300 hover:text-white 
+hover:border-orange-500 hover:shadow-[0_0_15px_rgba(255,122,0,0.4)] 
+transition duration-300">
+
+    ⬅ Dashboard
+</a>
+<!-- 🔥 MAIN -->
+<div class="relative z-10 min-h-screen flex items-center justify-center px-6">
+
+    <div class="grid lg:grid-cols-2 gap-10 w-full max-w-7xl mx-auto">
+
+        <!-- LEFT -->
+        <div class="flex flex-col justify-center">
+            <h1 class="text-5xl font-bold mb-6 tracking-wide">
+                AI Smart Assistant
+            </h1>
+            <p class="text-gray-400 text-lg leading-relaxed">
+                Chatbot + Resume Analyzer 🚀
+            </p>
+        </div>
+
+        <!-- RIGHT -->
+       <div class="flex flex-col gap-10 w-full max-w-md lg:max-w-none mx-auto">
+
+            <!-- CHAT -->
+           <div class="bg-[#0b1220]/70 backdrop-blur-xl p-5 rounded-3xl 
+            border border-gray-700 shadow-[0_0_40px_rgba(255,122,0,0.08)] 
+            h-[480px] flex flex-col w-full max-w-full">
+
+                <h2 class="mb-4 text-lg font-semibold flex items-center gap-2">
+                    🤖 Chatbot
+                </h2>
+
+                <!-- CHAT AREA -->
+                <div id="chatBox"
+                    class="flex-1 overflow-y-auto mb-4 space-y-3 text-sm p-4 
+                           rounded-xl bg-black/40 border border-gray-800">
+                </div>
+
+                <!-- INPUT -->
+                <div class="flex gap-3">
+                  <input id="msg"
+class="flex-1 min-w-0 p-3 rounded-xl bg-black border border-gray-700 
+focus:ring-2 focus:ring-orange-500 outline-none transition"
+placeholder="Ask something...">
+
+                    <button onclick="sendMsg()"
+                        class="px-5 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 
+                               hover:scale-105 transition duration-200">
+                        Send
+                    </button>
+                </div>
+            </div>
+
+            <!-- RESUME -->
+            <form id="resumeForm"
+class="bg-[#0b1220]/70 backdrop-blur-xl p-6 rounded-3xl 
+border border-gray-700 shadow-[0_0_40px_rgba(255,122,0,0.08)]">
+
+    <h2 class="mb-4 text-lg font-semibold flex items-center gap-2">
+        📄 Resume Analyzer
+    </h2>
+
+    <input type="file"
+        name="file"
+        class="mb-4 w-full text-sm bg-black p-2 rounded border border-gray-700">
+
+    <button
+        class="w-full bg-gradient-to-r from-orange-500 to-orange-600 py-2 rounded-xl 
+        hover:scale-105 transition duration-200">
+        Upload Resume
+    </button>
+
+    <!-- SCORE TEXT -->
+    <p id="score" class="mt-4 text-sm font-semibold"></p>
+
+    <!-- 🔥 PROGRESS BAR -->
+    <div class="w-full bg-gray-700 h-2 rounded mt-2 overflow-hidden">
+        <div id="progressBar"
+             class="h-2 bg-orange-500 rounded transition-all duration-500"
+             style="width:0%">
+        </div>
+    </div>
+
+</form>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>

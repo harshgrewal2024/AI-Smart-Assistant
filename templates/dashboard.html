@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        #bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white">
+
+<!-- 🔥 BACKGROUND -->
+<canvas id="bg"></canvas>
+
+<!-- 🔥 NAVBAR -->
+<div class="relative z-10 flex justify-between items-center px-6 py-4 border-b border-gray-800 bg-black/80 backdrop-blur-md">
+
+    <h1 class="text-2xl font-bold">📊 Dashboard</h1>
+
+    <div class="flex gap-3">
+        <a href="/chat-page"
+           class="bg-orange-500 px-4 py-2 rounded-lg hover:scale-105 transition">
+           Chat 🚀
+        </a>
+
+        <a href="/logout"
+           class="bg-red-500 px-4 py-2 rounded-lg hover:scale-105 transition">
+           Logout
+        </a>
+    </div>
+</div>
+
+<!-- 🔥 MAIN -->
+<div class="relative z-10 p-6">
+
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-6">
+
+        <!-- CHAT -->
+        <div class="bg-[#0b1220]/80 backdrop-blur-lg p-5 rounded-2xl border border-gray-700 flex flex-col h-[420px]">
+
+            <h2 class="text-lg font-semibold mb-3">💬 Chat History</h2>
+
+            <div id="chatHistory"
+                class="flex-1 overflow-y-auto space-y-2 text-sm p-3 rounded bg-black/40 border border-gray-800">
+            </div>
+
+        </div>
+
+        <!-- RESUME -->
+        <div class="bg-[#0b1220]/80 backdrop-blur-lg p-5 rounded-2xl border border-gray-700 flex flex-col h-[420px]">
+
+            <h2 class="text-lg font-semibold mb-3">📄 Resume History</h2>
+
+            <div id="resumeHistory"
+                class="flex-1 overflow-y-auto space-y-2 text-sm p-3 rounded bg-black/40 border border-gray-800">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/static/dashboard.js"></script>
+<script src="/static/script.js"></script>
+
+</body>
+</html>
